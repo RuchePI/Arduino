@@ -6,12 +6,13 @@ SoftwareSerial mySerial(7, 8); // définition de la liaison série "mySerial" su
  
 void setup()
 {
+  delay(100);
   mySerial.begin(19200); // définition de la vitesse de communication
   Serial.begin(19200); // définition de la vitesse de communication
   delay(3000); // attente de 3000 ms
   Serial.println("setup"); // écriture de "setup" sur la liaison arudino-PC
   // demande au shield :
-  mySerial.println("AT+CPIN?"); // état de la carte : dévérouillée
+  mySerial.println("AT+CPIN?"); // état de la carte : dévérouillée ?
   delay(100); ShowSerialData(); // attente de 100 ms et appelle de la fonction ShowSerialData
   mySerial.println("AT+CPIN=\"1234\""); // insertion du code PIN
   delay(100); ShowSerialData();
